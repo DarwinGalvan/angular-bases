@@ -8,15 +8,18 @@
       let isLast = last;
       let isEven = even
     "
-    class="list-group-item"
-    [ngClass]="{'list-group-item-primary' : isLast,
-               'list-group-item-warning' : isEven }"
+    class="list-group-item d-flex justify-content-between align-items-center"
+    [ngClass]="{
+      'list-group-item-primary': isLast,
+      'list-group-item-warning': isEven
+    }"
   >
-    <span class="text-primary">{{ i + 1 }} - </span>
-    <span>{{ character.name }} - </span>
-    <strong>Power -> </strong>
-    <span>
-      {{ character.power }}
-    </span>
+    <div>
+      <span class="text-primary">{{ i + 1 }} - </span>
+      <span>{{ character.name }} - </span>
+      <strong>Power -> </strong>
+      <span>{{ character.power }}</span>
+    </div>
+    <button class="btn btn-danger" (click)="onDeletedCharacter(character.id)"> X </button>
   </li>
 </ul>
